@@ -1,10 +1,7 @@
-import { CardProps } from "../../types/card"
+import { CardProps } from '../../types/card';
 
+const Card = ({ children, className }: CardProps) => {
+  return <div className={className}>{children}</div>;
+};
 
-const Card = ({children, className}:CardProps) => {
-  return (
-    <div className={className}>{children}</div>
-  )
-}
-
-export default Card
+export default Card;
