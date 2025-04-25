@@ -1,7 +1,7 @@
 export type ButtonProps = {
-    label: string;
-    onClick?: () => void;
-    disabled?: boolean;
-    className?: string;
-    icon?: React.ReactNode;
-}
+  label: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string;
+  icon?: React.ReactNode;
+};
