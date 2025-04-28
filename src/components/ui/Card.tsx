@@ -1,4 +1,4 @@
-import { CardProps } from '../../types/card';
+import { CardProps } from '../../lib/types/types';
 
 const Card = ({ children, className }: CardProps) => {
   return <div className={className}>{children}</div>;

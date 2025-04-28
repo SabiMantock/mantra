@@ -1,4 +1,4 @@
-import { ButtonProps } from '../../types/button';
+import { ButtonProps } from '../../lib/types/types';
 
 const Button = ({ label, onClick, disabled, className, icon }: ButtonProps) => {
   return (
