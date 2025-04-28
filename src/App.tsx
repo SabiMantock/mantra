@@ -1,17 +1,19 @@
-import Button from "./components/ui/Button"
-
-
+import Input from './components/ui/Input';
+import Button from './components/ui/Button';
 
 function App() {
-
-
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-    <Button label="Click me" onClick={() => alert("Hello World")} className="bg-blue-500 text-white px-4 py-2 rounded" />
-  </h1>
+      <h1 className="text-3xl font-bold underline">Hey</h1>
+      <Button
+        label="Click me"
+        onClick={() => alert('Hello World')}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      />
+
+      <Input type="select" label="some words of advice" />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
