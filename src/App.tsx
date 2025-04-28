@@ -1,9 +1,9 @@
-import Form from './components/form/Form';
+import TransactionForm from './components/transactions/TransactionForm';
 
 function App() {
   return (
     <>
-      <Form />
+      <TransactionForm />
     </>
   );
 }

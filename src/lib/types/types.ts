@@ -26,7 +26,7 @@ export type ButtonProps = {
 
 export type FormProps = {
   className?: string;
-  // categories: string[];
+  isExpense: boolean;
 };
 
 export type FormData = {
@@ -35,4 +35,5 @@ export type FormData = {
   description: string;
   date: string | Date;
   repeat: string | boolean;
+  type: 'expense' | 'income';
 }
