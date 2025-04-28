@@ -7,7 +7,7 @@ const TransactionForm = () => {
   const [isExpense, setIsExpense] = useState(true);
 
   return (
-    <Card className="max-w-2xl p-4 rounded-lg dark:bg-gray-800">
+    <Card className="max-w-2xl mx-2 p-4 rounded-lg dark:bg-gray-800">
       <h3 className="text-xl font-semibold text-center text-[#F8F8FA]">
         Transaction
       </h3>
