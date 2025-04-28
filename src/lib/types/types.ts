@@ -1,13 +1,14 @@
 export type InputProps = {
-  label?: string;
+  label: string;
   placeholder?: string;
-  value?: string;
-  onChange?: (
+  value: string | Date | number | boolean;
+  onChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void;
   className?: string;
   name?: string;
-  type?: string;
+  type: 'checkbox' | 'number' | 'text' | 'select' | 'date';
+  categories?: string[];
 };
 
 export type CardProps = {
@@ -22,3 +23,16 @@ export type ButtonProps = {
   className?: string;
   icon?: React.ReactNode;
 };
+
+export type FormProps = {
+  className?: string;
+  // categories: string[];
+};
+
+export type FormData = {
+  amount: string | number;
+  category: string;
+  description: string;
+  date: string | Date;
+  repeat: string | boolean;
+}
