@@ -5,7 +5,7 @@ import Input from '../ui/Input';
 import { categories } from '../../data/data';
 import { useEffect } from 'react';
 
-const Form = ({ className, isExpense }: FormProps & { isExpense: boolean }) => {
+const Form = ({ className, isExpense }: FormProps) => {
   const {
     control,
     handleSubmit,
@@ -13,7 +13,6 @@ const Form = ({ className, isExpense }: FormProps & { isExpense: boolean }) => {
     formState: { errors },
   } = useForm<FormData>();
 
-  // Set the type field based on isExpense
   useEffect(() => {
     setValue('type', isExpense ? 'expense' : 'income');
   }, [isExpense, setValue]);

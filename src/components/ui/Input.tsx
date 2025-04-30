@@ -151,7 +151,7 @@ const Input = ({
             placeholder={placeholder}
             name={name}
             onChange={onChange}
-            className={`block w-full h-10 py-2 px-2 sm:text-sm border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white box-border`}
+            className={`block w-full h-10 py-2 px-2 border sm:text-sm border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white box-border`}
           />
         </div>
       )}

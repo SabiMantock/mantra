@@ -36,4 +36,4 @@ export type FormData = {
   date: string | Date;
   repeat: string | boolean;
   type: 'expense' | 'income';
-}
+};
