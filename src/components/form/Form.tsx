@@ -10,14 +10,22 @@ const Form = ({ className, isExpense }: FormProps) => {
     control,
     handleSubmit,
     setValue,
-    formState: { errors },
+    formState: { errors:{
+      amount,
+      description,
+      date,
+      category,
+      repeat
+    } },
   } = useForm<FormData>();
 
   useEffect(() => {
     setValue('type', isExpense ? 'expense' : 'income');
   }, [isExpense, setValue]);
 
-  console.log(errors);
+  
+
+  console.log({amount, description, date, category,repeat});
   return (
     <form
       className={`${className} text-[#F8F8FA]`}
@@ -32,19 +40,34 @@ const Form = ({ className, isExpense }: FormProps) => {
       <Controller
         control={control}
         name="amount"
+        rules={{
+          required: "This is required",
+          min: { value: 0, message: "Must be positive" },
+          pattern: {
+            value: /^\d*\.?\d+$/,
+            message: "Only positive numbers/decimals allowed",
+          },
+        }}
         render={({ field: { onChange, value } }) => (
           <Input
             label="Amount"
             type="number"
             placeholder="0.00"
-            onChange={onChange}
+            onChange={(e) => {
+              const sanitizedValue = e.target.value
+                .replace(/[^0-9.]/g, "")
+                .replace(/(\..*)\./g, "$1");
+              onChange(sanitizedValue);
+            }}
             value={value}
+            error={amount ? { message: amount.message || "" } : undefined}
           />
         )}
       />
       <Controller
         control={control}
         name="category"
+        rules={{ required: true }}
         render={({ field: { onChange, value } }) => (
           <Input
             label="Category"
@@ -59,6 +82,7 @@ const Form = ({ className, isExpense }: FormProps) => {
       <Controller
         control={control}
         name="description"
+        rules={{ required: true }}
         render={({ field: { onChange, value } }) => (
           <Input
             label="Description"
@@ -71,6 +95,7 @@ const Form = ({ className, isExpense }: FormProps) => {
       />
       <Controller
         control={control}
+        rules={{ required: true }}
         name="date"
         render={({ field: { onChange, value } }) => (
           <Input label="Date" type="date" onChange={onChange} value={value} />
@@ -79,6 +104,7 @@ const Form = ({ className, isExpense }: FormProps) => {
       <Controller
         control={control}
         name="repeat"
+        // rules={{ required: true }}
         render={({ field: { onChange, value } }) => (
           <Input
             label="Repeat"

@@ -9,6 +9,9 @@ export type InputProps = {
   name?: string;
   type: 'checkbox' | 'number' | 'text' | 'select' | 'date';
   categories?: string[];
+  error?: {
+    message: string;
+  };
 };
 
 export type CardProps = {

@@ -9,6 +9,7 @@ const Input = ({
   onChange,
   className,
   categories,
+  error
 }: InputProps) => {
   return (
     <>
@@ -59,22 +60,17 @@ const Input = ({
                   onChange(e);
                 }
               }}
-              onBlur={(e) => {
-                if (onChange) {
-                  const formattedValue = parseFloat(
-                    e.target.value || '0'
-                  ).toFixed(2);
-                  onChange({
-                    ...e,
-                    target: { ...e.target, value: formattedValue },
-                  });
-                }
-              }}
+              
               step="0.01"
-              className={`block w-full pl-5 py-2 border border-gray-300 h-10 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white`}
-              required
+              className={`block w-full pl-5 py-2 border border-gray-300 h-10 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
+        
             />
           </div>
+          {error?.message && (
+            <p className="mt-0 ml-0.5 text-sm text-red-600 dark:text-red-500">
+              walahi type a number
+            </p>
+          )}
         </div>
       )}
 
@@ -97,7 +93,7 @@ const Input = ({
             name={name}
             onChange={onChange}
             className={`block w-full p-2 border h-10 border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white`}
-            required
+       
           />
         </div>
       )}
@@ -119,7 +115,7 @@ const Input = ({
             }
             onChange={onChange}
             className={`block w-full h-10 px-2 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white  p-2 sm:text-sm  bg-[linear-gradient(45deg,transparent_50%,gray_50%),linear-gradient(135deg,gray_50%,transparent_50%),linear-gradient(to_right,#ccc,#ccc)] bg-[length:5px_5px,5px_5px,1px_1.5em] bg-[position:calc(100%-20px)_calc(1em+2px),calc(100%-15px)_calc(1em+2px),calc(100%-2.5em)_0.5em] bg-no-repeat focus:bg-[linear-gradient(45deg,green_50%,transparent_50%),linear-gradient(135deg,transparent_50%,green_50%),linear-gradient(to_right,#ccc,#ccc)] focus:bg-[position:calc(100%-15px)_1em,calc(100%-20px)_1em,calc(100%-2.5em)_0.5em] focus:bg-[length:5px_5px,5px_5px,1px_1.5em] focus:outline-none  appearance-none`}
-            required
+          
           >
             <option value="">{placeholder || 'Select an option'}</option>
             {categories.map((category, index) => (
