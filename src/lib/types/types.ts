@@ -33,7 +33,7 @@ export type FormProps = {
 };
 
 export type FormData = {
-  amount: string | number;
+  amount: number;
   category: string;
   description: string;
   date: string | Date;

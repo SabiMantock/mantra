@@ -17,11 +17,7 @@ const Input = ({
         <div className="min-w-72 mt-4 flex gap-2 items-center">
           <input
             type="checkbox"
-            value={
-              typeof value === 'boolean' || value instanceof Date
-                ? String(value)
-                : value
-            }
+            checked={value as boolean}
             placeholder={placeholder}
             name={name}
             onChange={onChange}
@@ -48,11 +44,7 @@ const Input = ({
             <div className="h-6 w-6 absolute top-1 left-1 p-1">£</div>
             <input
               type="number"
-              value={
-                typeof value === 'string' || typeof value === 'number'
-                  ? value
-                  : (value?.toString() ?? '')
-              }
+              value={value as number}
               placeholder={placeholder}
               name={name}
               onChange={(e) => {
@@ -62,8 +54,7 @@ const Input = ({
               }}
               
               step="0.01"
-              className={`block w-full pl-5 py-2 border border-gray-300 h-10 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
-        
+              className={`block w-full pl-5 py-2 border border-gray-300 h-10 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white`}
             />
           </div>
           {error?.message && (
@@ -84,11 +75,7 @@ const Input = ({
           </label>
           <input
             type="text"
-            value={
-              typeof value === 'string' || typeof value === 'number'
-                ? value
-                : (value?.toString() ?? '')
-            }
+            value={value as string}
             placeholder={placeholder}
             name={name}
             onChange={onChange}
@@ -108,11 +95,7 @@ const Input = ({
           </label>
           <select
             name={name}
-            value={
-              typeof value === 'string' || typeof value === 'number'
-                ? value
-                : (value?.toString() ?? '')
-            }
+            value={value as string}
             onChange={onChange}
             className={`block w-full h-10 px-2 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-white  p-2 sm:text-sm  bg-[linear-gradient(45deg,transparent_50%,gray_50%),linear-gradient(135deg,gray_50%,transparent_50%),linear-gradient(to_right,#ccc,#ccc)] bg-[length:5px_5px,5px_5px,1px_1.5em] bg-[position:calc(100%-20px)_calc(1em+2px),calc(100%-15px)_calc(1em+2px),calc(100%-2.5em)_0.5em] bg-no-repeat focus:bg-[linear-gradient(45deg,green_50%,transparent_50%),linear-gradient(135deg,transparent_50%,green_50%),linear-gradient(to_right,#ccc,#ccc)] focus:bg-[position:calc(100%-15px)_1em,calc(100%-20px)_1em,calc(100%-2.5em)_0.5em] focus:bg-[length:5px_5px,5px_5px,1px_1.5em] focus:outline-none  appearance-none`}
           
@@ -137,13 +120,7 @@ const Input = ({
           </label>
           <input
             type="date"
-            value={
-              value instanceof Date
-                ? value.toISOString().split('T')[0]
-                : typeof value === 'string' || typeof value === 'number'
-                  ? value
-                  : ''
-            }
+            value={value as string}
             placeholder={placeholder}
             name={name}
             onChange={onChange}

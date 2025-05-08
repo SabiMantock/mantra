@@ -53,12 +53,7 @@ const Form = ({ className, isExpense }: FormProps) => {
             label="Amount"
             type="number"
             placeholder="0.00"
-            onChange={(e) => {
-              const sanitizedValue = e.target.value
-                .replace(/[^0-9.]/g, "")
-                .replace(/(\..*)\./g, "$1");
-              onChange(sanitizedValue);
-            }}
+            onChange={onChange}
             value={value}
             error={amount ? { message: amount.message || "" } : undefined}
           />
