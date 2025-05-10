@@ -20,9 +20,13 @@ jobs:
           node-version: '22.x'
       
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd frontend
+          npm install
       - name: Run ESLint
-        run: npm run lint
+        run: |
+          cd frontend
+          npm run lint
   nodechecker:
     name: Node Modules Checker
     runs-on: ubuntu-latest
