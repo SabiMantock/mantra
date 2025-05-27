@@ -29,7 +29,7 @@ export type ButtonProps = {
 
 export type FormProps = {
   className?: string;
-  isExpense: boolean;
+ 
 };
 
 export type FormData = {
@@ -40,3 +40,11 @@ export type FormData = {
   repeat: string | boolean;
   type: 'expense' | 'income';
 };
+
+
+export type SigninFormData = {
+  email?: string;
+  password?: string;
+  remember?: boolean;
+};
+  
