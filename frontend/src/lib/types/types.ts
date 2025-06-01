@@ -53,3 +53,17 @@ export type SignupFormData = {
   agreement?: boolean;
   fullName?: string;
 };
+
+export type SummaryCardProps = {
+  title?: string;
+  value?: string | number;
+  percentage?: string | number;
+  icon?: React.ReactNode;
+};
+
+export interface ChartData {
+  name: string;
+  income?: number;
+  expenses?: number;
+  value?: number;
+}
