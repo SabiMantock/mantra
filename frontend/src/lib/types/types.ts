@@ -25,11 +25,11 @@ export type ButtonProps = {
   disabled?: boolean;
   className?: string;
   icon?: React.ReactNode;
+  isIcon?: boolean;
 };
 
 export type FormProps = {
   className?: string;
- 
 };
 
 export type FormData = {
@@ -41,10 +41,15 @@ export type FormData = {
   type: 'expense' | 'income';
 };
 
-
 export type SigninFormData = {
   email?: string;
   password?: string;
   remember?: boolean;
 };
-  
+
+export type SignupFormData = {
+  email?: string;
+  password?: string;
+  agreement?: boolean;
+  fullName?: string;
+};

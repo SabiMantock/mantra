@@ -1,10 +1,30 @@
 import { ButtonProps } from '../../lib/types/types';
 
-const Button = ({ label, onClick, disabled, className, icon }: ButtonProps) => {
+const Button = ({
+  label,
+  onClick,
+  disabled,
+  className,
+  icon,
+  isIcon,
+}: ButtonProps) => {
   return (
-    <button className={className} onClick={onClick} disabled={disabled}>
-      {label || icon}
-    </button>
+    <>
+      {!isIcon ? (
+        <button className={className} onClick={onClick} disabled={disabled}>
+          {label}
+        </button>
+      ) : (
+        <button
+          className={`${className} flex justify-center items-center gap-2.5`}
+          onClick={onClick}
+          disabled={disabled}
+        >
+          <div>{icon}</div>
+          <div>{label}</div>
+        </button>
+      )}
+    </>
   );
 };
 
